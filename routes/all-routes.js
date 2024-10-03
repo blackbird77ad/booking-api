@@ -15,7 +15,7 @@ export const bookingRouter = Router();
 bookingRouter.get('/bookings', getAllBookings);
 
 //route for getting a booking
-bookingRouter.get('/bookings/id', getOneBooking);
+bookingRouter.get('/bookings/:id', getOneBooking);
 
 //route for posting or adding a booking
 bookingRouter.post('/bookings', postBooking);
