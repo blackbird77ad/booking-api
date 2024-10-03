@@ -4,7 +4,8 @@ import { Booking } from "../models/booking-model.js";
 export const getAllBookings = async (req, res, next) => {
  try {
   const book = await Booking.find();
-  res.status(200).json("These are your bookings")
+ 
+  res.status(200).json(book)
  } catch (error) {
      next(error);
  }
@@ -27,8 +28,8 @@ export const postBooking = async (req, res, next) => {
         await Booking.create(req.body);
         
     // const newBooking = new Booking();
-    // // console.log('request', req)
     // const bookings = await newBooking.save(req.body)
+    
 //Respond to request
     // res.status(201).json("bookings");
 
