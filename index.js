@@ -17,6 +17,6 @@ app.use(express.json())
 app.use(bookingRouter)
 
 //listen for incoming requests
-const PORT = 3057
+const PORT = 3054
 app.listen(PORT, () =>
     console.log(`Server is listening on ${PORT}`))
