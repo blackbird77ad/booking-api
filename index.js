@@ -10,8 +10,10 @@ const app = express();
 //importing database
 await mongoose.connect(process.env.MONGO_URI)
  
-//use routes
+//Fetch json 
 app.use(express.json())
+
+//use routes
 app.use(bookingRouter)
 
 //listen for incoming requests

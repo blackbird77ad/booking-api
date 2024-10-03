@@ -1,30 +1,54 @@
-import { booking } from "../models/booking-model.js";
+import { Booking } from "../models/booking-model.js";
 
 //Gets all bookings
-export const getAllBookings = (req, res, next) => {
- res.status(200).json("These are all the bookings")
+export const getAllBookings = async (req, res, next) => {
+ try {
+  const book = await Booking.find();
+  res.status(200).json(book)
+ } catch (error) {
+     next(error);
+ }
 }
 
 //get a booking
 export const getOneBooking = (req, res, next) => {
-  res.status(200).json("This is one bookings");
+  try {
+    res.status(200).json("This is one bookings");
+  } catch (error) {
+    next(error);
+  }
 }
 
 //Add or post a booking
 export const postBooking = async (req, res, next) => {
-  const newBooking = await new booking();
-
-  // console.log('request', req)
-  const bookings = await newBooking.save(req.body)
-  res.status(201).json(bookings);
+  try {
+    //Validate user input
+        //write todo to database
+        await Booking.create(req.body);
+        //Respond to request
+    // const newBooking = new booking();
+    // // console.log('request', req)
+    // const bookings = await newBooking.save(req.body)
+    res.status(201).json("Booking created successfully");
+  } catch (error) {
+    next(error);
+  }
 }
 
 //update a booking with either patch or put
 export const updateBooking = (req, res, next) => {
-  res.status(201).json("Booking updated successfully");
+  try {
+    res.status(201).json("Booking updated successfully");
+  } catch (error) {
+    next(error);
+  }
 }
 
 //Delete a booking
 export const deleteBooking = (req, res, next) => {
-  res.status(201).json("Booking delete successfully");
+  try {
+    res.status(201).json("Booking delete successfully");
+  } catch (error) {
+    next(error);
+  }
 }

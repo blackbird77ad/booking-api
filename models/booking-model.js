@@ -32,4 +32,4 @@ const bookingSchema = new Schema({
     // duration schema here
 })
 
-export const booking =model('Booking', bookingSchema)
+export const Booking =model("Booking", bookingSchema)
