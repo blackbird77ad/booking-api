@@ -25,10 +25,14 @@ export const postBooking = async (req, res, next) => {
     //Validate user input
         //write todo to database
         await Booking.create(req.body);
-        //Respond to request
-    // const newBooking = new booking();
+        
+    // const newBooking = new Booking();
     // // console.log('request', req)
     // const bookings = await newBooking.save(req.body)
+//Respond to request
+    // res.status(201).json("bookings");
+
+    //Respond to request
     res.status(201).json("Booking created successfully");
   } catch (error) {
     next(error);
