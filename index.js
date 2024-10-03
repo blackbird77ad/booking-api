@@ -20,6 +20,6 @@ app.use(express.json())
 app.use(bookingRouter)
 
 //listen for incoming requests
-const PORT = 9000
+const PORT = 3800
 app.listen(PORT, () =>
     console.log(`Server is listening on ${PORT}`))
