@@ -3,7 +3,7 @@ import { Booking } from "../models/booking-model.js";
 //Gets all bookings
 export const getAllBookings = async (req, res, next) => {
  try {
-  // const book = await Booking.find();
+  const book = await Booking.find();
   res.status(200).json("These are your bookings")
  } catch (error) {
      next(error);
